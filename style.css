@@ -1,0 +1,238 @@
+/* ==========================================================================
+   FLIPSTUCK - COURSE PAGE DESIGN SYSTEM & STYLESHEET
+   1:1 Pixel-Accurate Implementation of Course Page UI.png
+   Responsive across Mobile, Tablet, Desktop, and Ultrawide displays.
+   ========================================================================== */
+
+/* --- CSS Variables & Design Tokens --- */
+:root {
+  /* Brand Colors */
+  --color-brand: #d0ea05;
+  --color-brand-hover: #c0d804;
+  --color-brand-light: #eaf874;
+  --color-brand-subtle: #f5fbc7;
+  --color-brand-glow: rgba(208, 234, 5, 0.45);
+  --color-brand-text: #8ea800;
+  --color-brand-accent: #9bc800;
+  
+  /* Neutral Dark & Light Palette */
+  --color-text-primary: #121212;
+  --color-text-secondary: #555555;
+  --color-text-muted: #777777;
+  --color-bg-page: #fdfdfd;
+  --color-bg-subtle: #f8f9fa;
+  --color-card-bg: #ffffff;
+  
+  /* Borders & Dividers */
+  --color-border: #f0f0f0;
+  --color-border-card: #eef0f2;
+  --color-border-hover: #d0ea05;
+  
+  /* Table & Badges */
+  --color-table-green-bg: #f8fde8;
+  --color-table-green-border: #d4ec18;
+  --color-check-green: #10b981;
+  --color-cross-red: #ef4444;
+  --color-star-yellow: #f8b805;
+  
+  /* Typography */
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-serif-italic: 'Playfair Display', 'Instrument Serif', Georgia, serif;
+  
+  /* Spacing & Layout */
+  --max-width: 1240px;
+  --header-height: 80px;
+  --transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  --radius-card: 20px;
+  --radius-sm: 12px;
+  --radius-full: 9999px;
+
+  /* Modern Keyword Interpolation for intrinsic sizing */
+  interpolate-size: allow-keywords;
+}
+
+@keyframes drawerSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- Global Reset & Box Sizing --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-bg-page);
+  color: var(--color-text-primary);
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+ul {
+  list-style: none;
+}
+
+button, input {
+  font-family: inherit;
+}
+
+/* --- Utility Containers --- */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: 24px;
+}
+
+.serif-italic {
+  font-family: var(--font-serif-italic);
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.accent-lime {
+  color: #9ac300;
+  font-weight: inherit;
+}
+
+/* Green dot marker used across headings and tags */
+.label-dot {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  background-color: var(--color-brand);
+  border-radius: 50%;
+  margin-right: 8px;
+  vertical-align: middle;
+  flex-shrink: 0;
+  transform: translateY(-1px);
+  box-shadow: 0 0 6px rgba(208, 234, 5, 0.6);
+}
+
+/* Section Tag Pills */
+.section-tag-center {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #333333;
+  margin-bottom: 12px;
+}
+
+.section-tag-center .label-dot {
+  margin-right: 8px;
+}
+
+.section-header-center {
+  text-align: center;
+  margin-bottom: 44px;
+}
+
+.section-heading-center {
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: var(--color-text-primary);
+  line-height: 1.2;
+  margin-bottom: 10px;
+}
+
+.section-subtext-center {
+  font-size: 1.05rem;
+  color: var(--color-text-secondary);
+}
+
+/* --- Buttons System --- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 28px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: var(--transition);
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+
+.btn-sm {
+  padding: 9px 22px;
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.btn-primary {
+  background-color: var(--color-brand);
+  color: #111111;
+  box-shadow: 0 2px 8px rgba(208, 234, 5, 0.2);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-brand-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(208, 234, 5, 0.45);
+}
+
+.btn-large {
+  padding: 15px 36px;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.btn-outline {
+  background-color: transparent;
+  border-color: #1a1a1a;
+  color: #1a1a1a;
+}
+
+.btn-outline:hover {
+  background-color: #1a1a1a;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.arrow-icon {
+  width: 14px;
+  height: 14px;
+  transition: transform 0.2s ease;
+}
+
+.btn:hover .arrow-icon {
+  transform: translateX(4px);
+}
+
