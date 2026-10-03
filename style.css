@@ -778,3 +778,28 @@ body:has(.mobile-menu-toggle-checkbox:checked) {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  margin-bottom: 36px;
+}
+
+.curriculum-module {
+  border: 1px solid #ededed;
+  border-radius: var(--radius-sm);
+  background-color: #ffffff;
+  overflow: hidden;
+  transition: border-color 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.curriculum-module:hover {
+  border-color: #d8d8d8;
+}
+
+.curriculum-module[open]:not(.is-closing) {
+  border-color: var(--color-brand);
+  box-shadow: 0 6px 22px rgba(208, 234, 5, 0.12), 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.curriculum-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 24px;
