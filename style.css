@@ -450,3 +450,176 @@ body:has(.mobile-menu-toggle-checkbox:checked) {
 /* ==========================================================================
    COURSE HERO SECTION
    ========================================================================== */
+.course-hero-section {
+  padding-top: 48px;
+  padding-bottom: 60px;
+}
+
+.course-hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+/* Left Hero Details */
+.hero-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 6px 16px;
+  border: 1px solid #e5e7eb;
+  border-radius: var(--radius-full);
+  background-color: #ffffff;
+  margin-bottom: 24px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+}
+
+.badge-bestseller {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #111111;
+}
+
+.badge-bestseller .label-dot {
+  margin-right: 6px;
+  width: 8px;
+  height: 8px;
+}
+
+.badge-divider {
+  width: 1px;
+  height: 14px;
+  background-color: #e5e7eb;
+}
+
+.badge-rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #333333;
+}
+
+.star-icon {
+  width: 14px;
+  height: 14px;
+  color: var(--color-star-yellow);
+  fill: currentColor;
+}
+
+.rating-muted {
+  color: #666666;
+  font-weight: normal;
+}
+
+.course-hero-title {
+  font-size: clamp(2.3rem, 4vw, 3.4rem);
+  font-weight: 800;
+  line-height: 1.14;
+  letter-spacing: -0.03em;
+  color: var(--color-text-primary);
+  margin-bottom: 18px;
+}
+
+.course-hero-subtitle {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  margin-bottom: 28px;
+  max-width: 580px;
+}
+
+/* 2x3 Feature Matrix */
+.course-features-matrix {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px 24px;
+  margin-bottom: 32px;
+}
+
+.feature-pill-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #222222;
+}
+
+.feature-icon-circle {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background-color: #f7fce5;
+  color: #657c00;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.feature-icon-circle svg {
+  width: 15px;
+  height: 15px;
+}
+
+/* Pricing Area */
+.hero-price-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.price-current {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--color-text-primary);
+  line-height: 1;
+}
+
+.price-original {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  text-decoration: line-through;
+}
+
+.discount-badge {
+  background-color: var(--color-brand);
+  color: #111111;
+  font-size: 0.85rem;
+  font-weight: 800;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  letter-spacing: 0.02em;
+}
+
+/* Primary Hero Action Button */
+.hero-action-btn {
+  width: 100%;
+  max-width: 440px;
+  padding: 16px 32px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 22px;
+  box-shadow: 0 4px 18px rgba(208, 234, 5, 0.4);
+}
+
+/* Trust Badges Strip */
+.hero-trust-badges {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.trust-badge-item {
+  display: flex;
+  align-items: center;
