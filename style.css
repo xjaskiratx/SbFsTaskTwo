@@ -1221,3 +1221,132 @@ body:has(.mobile-menu-toggle-checkbox:checked) {
   display: block;
 }
 
+/* ==========================================================================
+   WHY LEARNERS TRUST SKILLWAVE? (COMPARISON TABLE)
+   ========================================================================== */
+.comparison-section {
+  padding-block: 50px 70px;
+}
+
+.comparison-table-wrapper {
+  max-width: 860px;
+  margin-inline: auto;
+  background-color: #ffffff;
+  border: 1px solid #e8ecf0;
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.03);
+}
+
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+.comparison-table th,
+.comparison-table td {
+  padding: 16px 20px;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 0.94rem;
+}
+
+.comparison-table th {
+  font-weight: 700;
+  color: #222222;
+  background-color: #fafbfc;
+}
+
+.col-features {
+  text-align: left;
+  font-weight: 600;
+  color: #222222;
+  width: 32%;
+  padding-left: 28px !important;
+}
+
+.col-flipstuck {
+  width: 24%;
+  background-color: var(--color-table-green-bg);
+  color: #121212;
+  position: relative;
+}
+
+.col-youtube {
+  width: 22%;
+  color: #555555;
+}
+
+.col-competitor {
+  width: 22%;
+  color: #555555;
+}
+
+/* Header Cells */
+.comparison-table th.col-flipstuck {
+  background-color: var(--color-table-green-bg);
+  border-bottom: 2px solid var(--color-table-green-border);
+  font-size: 1.05rem;
+  color: #111111;
+}
+
+.price-subtext {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #777777;
+  margin-top: 2px;
+}
+
+.col-flipstuck .price-val {
+  color: #7ba200;
+  font-weight: 800;
+  font-size: 1.1rem;
+}
+
+/* Indicator Marks */
+.mark-check {
+  color: var(--color-check-green);
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+
+.mark-cross {
+  color: var(--color-cross-red);
+  font-size: 1.1rem;
+  font-weight: 800;
+}
+
+.mark-dash {
+  color: #888888;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+/* Table Footer Row */
+.comparison-footer-row td {
+  border-bottom: none;
+  padding: 22px 28px;
+  background-color: #ffffff;
+}
+
+.save-amount-text {
+  text-align: left;
+  font-size: 0.88rem;
+  color: #666666;
+}
+
+.save-amount-bold {
+  display: block;
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #111111;
+  margin-top: 2px;
+}
+
+.table-enroll-btn {
+  padding: 10px 24px;
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
