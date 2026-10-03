@@ -1000,3 +1000,191 @@ body:has(.mobile-menu-toggle-checkbox:checked) {
   color: #555555;
 }
 
+/* ==========================================================================
+   FINISH WITH PROOF: CERTIFICATE & PORTFOLIO
+   ========================================================================== */
+.proof-section {
+  padding-block: 50px 70px;
+}
+
+.proof-pills-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.proof-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px;
+  border-radius: var(--radius-full);
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #222222;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+}
+
+.proof-pill svg {
+  width: 16px;
+  height: 16px;
+  color: #444444;
+}
+
+/* Proof Gallery / Certificates Looping Carousel (Matches Trusted Partners Marquee) */
+.proof-carousel-wrapper {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  overflow: hidden;
+  padding-block: 10px 24px;
+  mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.85) 6%, #000 15%, #000 85%, rgba(0,0,0,0.85) 94%, transparent 100%);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.85) 6%, #000 15%, #000 85%, rgba(0,0,0,0.85) 94%, transparent 100%);
+}
+
+.proof-carousel-track {
+  display: flex;
+  width: max-content;
+  animation: proofMarqueeScroll 28s linear infinite;
+  will-change: transform;
+}
+
+.proof-carousel-wrapper:hover .proof-carousel-track {
+  animation-play-state: paused;
+}
+
+.proof-group {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding-right: 24px;
+}
+
+.proof-card-item {
+  flex-shrink: 0;
+  border-radius: 20px;
+  overflow: hidden;
+  background-color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.proof-card-item:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+}
+
+.proof-card-img {
+  height: 240px;
+  width: auto;
+  display: block;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+@keyframes proofMarqueeScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 768px) {
+  .proof-card-img {
+    height: 195px;
+  }
+  .proof-group {
+    gap: 16px;
+    padding-right: 16px;
+  }
+  .proof-carousel-track {
+    animation-duration: 22s;
+  }
+}
+
+/* ==========================================================================
+   STUDENT FEEDBACK / TESTIMONIALS
+   ========================================================================== */
+.reviews-section {
+  padding-block: 50px 70px;
+}
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.review-card {
+  background-color: #ffffff;
+  border: 1px solid var(--color-border-card);
+  border-radius: 18px;
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.02);
+  transition: var(--transition);
+}
+
+.review-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.05);
+  border-color: #e2e4e8;
+}
+
+.review-card-top {
+  margin-bottom: 24px;
+}
+
+.quote-img {
+  width: 28px;
+  height: auto;
+  margin-bottom: 16px;
+  opacity: 0.9;
+}
+
+.review-quote-text {
+  font-size: 0.96rem;
+  line-height: 1.6;
+  color: #333333;
+}
+
+.reviewer-info {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.reviewer-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.reviewer-name {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #111111;
+}
+
+.reviewer-role {
+  font-size: 0.82rem;
+  color: var(--color-text-secondary);
+}
+
