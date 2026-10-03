@@ -1188,3 +1188,36 @@ body:has(.mobile-menu-toggle-checkbox:checked) {
   color: var(--color-text-secondary);
 }
 
+/* ==========================================================================
+   PLACEMENT & INTERNSHIP OPPORTUNITIES
+   ========================================================================== */
+.placement-section {
+  padding-block: 50px 70px;
+}
+
+.placement-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  max-width: 860px;
+  margin-inline: auto;
+}
+
+.placement-card-item {
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.03);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.placement-card-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.06);
+}
+
+.placement-card-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
