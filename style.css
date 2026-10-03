@@ -623,3 +623,73 @@ body:has(.mobile-menu-toggle-checkbox:checked) {
 .trust-badge-item {
   display: flex;
   align-items: center;
+  gap: 7px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+}
+
+.trust-badge-item svg {
+  width: 16px;
+  height: 16px;
+  color: #444444;
+}
+
+/* Right Video / Course Preview Card */
+.course-preview-container {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.08);
+  transition: var(--transition);
+  cursor: pointer;
+  background-color: #121212;
+}
+
+.course-preview-container:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 22px 55px rgba(0, 0, 0, 0.14);
+}
+
+.preview-media-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.preview-screen-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.preview-overlay-hover {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.course-preview-container:hover .preview-overlay-hover {
+  opacity: 1;
+}
+
+.preview-click-prompt {
+  background: rgba(18, 18, 18, 0.85);
+  color: #ffffff;
+  padding: 8px 18px;
+  border-radius: var(--radius-full);
+  font-size: 0.88rem;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+/* ==========================================================================
+   PARTNERS STRIP
+   ========================================================================== */
+.partners-section {
+  padding-block: 40px 50px;
