@@ -1455,3 +1455,126 @@ body:has(.mobile-menu-toggle-checkbox:checked) {
   animation: drawerSlideIn 0.32s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
+/* ==========================================================================
+   DESIGNED FOR REAL PEOPLE (Pre-Footer Banner)
+   ========================================================================== */
+.real-people-section {
+  padding-block: 60px 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.real-people-layout {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  align-items: center;
+  gap: 40px;
+}
+
+.pill-badge-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  border: 1px solid #e8e8e8;
+  border-radius: var(--radius-full);
+  background: #ffffff;
+  margin-bottom: 24px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #222222;
+}
+
+.real-people-heading {
+  font-size: clamp(2.4rem, 4.5vw, 4rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: #121212;
+  margin-bottom: 16px;
+}
+
+.real-people-subtitle {
+  font-size: 1.1rem;
+  color: #555555;
+  margin-bottom: 30px;
+}
+
+.pillars-row {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  margin-bottom: 36px;
+}
+
+.pillar-divider {
+  width: 1px;
+  height: 48px;
+  background-color: #e5e7eb;
+  flex-shrink: 0;
+}
+
+.pillar-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.pillar-icon-box {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #f6fcc8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #111111;
+  transition: var(--transition);
+}
+
+.pillar-icon-box svg {
+  width: 22px;
+  height: 22px;
+}
+
+.pillar-item:hover .pillar-icon-box {
+  background-color: var(--color-brand);
+  transform: scale(1.08);
+}
+
+.pillar-label {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #121212;
+}
+
+/* Right Column Visual */
+.real-people-right {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.human-glow-bg {
+  position: absolute;
+  width: 380px;
+  height: 380px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(208, 234, 5, 0.45) 0%, rgba(208, 234, 5, 0.12) 60%, transparent 80%);
+  filter: blur(40px);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.human-graphic {
+  position: relative;
+  z-index: 2;
+  max-width: 460px;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 15px 35px rgba(208, 234, 5, 0.25));
+}
+
