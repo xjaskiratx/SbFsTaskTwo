@@ -1157,5 +1157,142 @@
     </div>
   </div>
 
+  <script>
+    // Smooth Accordion Animation Handler using Web Animations API
+    class SmoothAccordion {
+      constructor(el) {
+        this.el = el;
+        this.summary = el.querySelector('summary');
+        this.content = el.querySelector('.module-content-drawer, .faq-answer-content');
+        if (!this.summary || !this.content) return;
+
+        this.animation = null;
+        this.isClosing = false;
+        this.isExpanding = false;
+
+        this.summary.addEventListener('click', (e) => this.onClick(e));
+      }
+
+      onClick(e) {
+        e.preventDefault();
+        this.el.style.overflow = 'hidden';
+
+        if (this.isClosing || !this.el.open) {
+          this.open();
+        } else if (this.isExpanding || this.el.open) {
+          this.shrink();
+        }
+      }
+
+      shrink() {
+        if (this.isClosing) return;
+        this.isClosing = true;
+        this.isExpanding = false;
+        this.el.classList.add('is-closing');
+
+        const startHeight = `${this.el.offsetHeight}px`;
+        const endHeight = `${this.summary.offsetHeight}px`;
+
+        if (this.animation) this.animation.cancel();
+
+        this.animation = this.el.animate({
+          height: [startHeight, endHeight]
+        }, {
+          duration: 300,
+          easing: 'cubic-bezier(0.16, 1, 0.3, 1)'
+        });
+
+        this.animation.onfinish = () => this.onAnimationFinish(false);
+        this.animation.oncancel = () => {
+          this.isClosing = false;
+          this.el.classList.remove('is-closing');
+        };
+      }
+
+      open() {
+        if (this.isExpanding) return;
+
+        // Smoothly close any sibling accordion within the same group
+        const container = this.el.closest('.curriculum-accordion-list, .faq-accordion-group');
+        if (container) {
+          container.querySelectorAll('.curriculum-module[open], .faq-item[open]').forEach(other => {
+            if (other !== this.el && other._smoothAccordion) {
+              other._smoothAccordion.shrink();
+            }
+          });
+        }
+
+        this.isClosing = false;
+        this.isExpanding = true;
+        this.el.classList.remove('is-closing');
+
+        const startHeight = `${this.el.offsetHeight}px`;
+        this.el.open = true;
+
+        window.requestAnimationFrame(() => {
+          const endHeight = `${this.summary.offsetHeight + this.content.offsetHeight}px`;
+
+          if (this.animation) this.animation.cancel();
+
+          this.animation = this.el.animate({
+            height: [startHeight, endHeight]
+          }, {
+            duration: 320,
+            easing: 'cubic-bezier(0.16, 1, 0.3, 1)'
+          });
+
+          this.animation.onfinish = () => this.onAnimationFinish(true);
+          this.animation.oncancel = () => { this.isExpanding = false; };
+        });
+      }
+
+      onAnimationFinish(open) {
+        this.el.open = open;
+        this.animation = null;
+        this.isClosing = false;
+        this.isExpanding = false;
+        this.el.classList.remove('is-closing');
+        this.el.style.height = '';
+        this.el.style.overflow = '';
+      }
+    }
+
+    // Attach smooth animation to all curriculum modules and FAQ items
+    document.querySelectorAll('.curriculum-module, .faq-item').forEach(item => {
+      item._smoothAccordion = new SmoothAccordion(item);
+    });
+
+    // Auto-close mobile drawer when any link is clicked
+    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+    document.querySelectorAll('.mobile-nav-link, .mobile-cta-btn').forEach(link => {
+      link.addEventListener('click', () => {
+        if (mobileMenuToggle && mobileMenuToggle.checked) {
+          mobileMenuToggle.checked = false;
+        }
+      });
+    });
+
+    // Video preview modal trigger
+    const previewTrigger = document.getElementById('videoPreviewTrigger');
+    const modal = document.getElementById('videoModal');
+    const modalClose = document.getElementById('modalCloseBtn');
+
+    if (previewTrigger && modal && modalClose) {
+      previewTrigger.addEventListener('click', () => {
+        modal.classList.add('active');
+      });
+
+      modalClose.addEventListener('click', (e) => {
+        e.stopPropagation();
+        modal.classList.remove('active');
+      });
+
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          modal.classList.remove('active');
+        }
+      });
+    }
+  </script>
 </body>
 </html>
