@@ -1824,3 +1824,192 @@ body:has(.mobile-menu-toggle-checkbox:checked) {
   background: rgba(255, 255, 255, 0.4);
 }
 
+/* ==========================================================================
+   RESPONSIVE MEDIA QUERIES
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .course-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .course-hero-details {
+    order: 1;
+  }
+  
+  .course-preview-container {
+    order: 2;
+    max-width: 680px;
+    margin-inline: auto;
+  }
+  
+  .instructor-card {
+    gap: 32px;
+    padding: 32px;
+  }
+  
+  .footer-grid {
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 40px;
+  }
+  
+  .brand-col {
+    grid-column: span 3;
+  }
+}
+
+@media (max-width: 840px) {
+  .nav-links {
+    display: none;
+  }
+  
+  .header-action {
+    display: none;
+  }
+  
+  .mobile-menu-btn {
+    display: flex;
+  }
+  
+  .reviews-grid {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+    margin-inline: auto;
+  }
+  
+  .marquee-track {
+    gap: 48px;
+    animation-duration: 22s;
+  }
+  
+  .placement-grid {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+  }
+  
+  .real-people-layout {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  
+  .pillars-row {
+    justify-content: center;
+  }
+  
+  .real-people-right {
+    margin-top: 20px;
+  }
+  
+  .comparison-table-wrapper {
+    overflow-x: auto;
+  }
+  
+  .comparison-table {
+    min-width: 600px;
+  }
+}
+
+@media (max-width: 640px) {
+  :root {
+    --header-height: 70px;
+  }
+  
+  .course-hero-section {
+    padding-top: 24px;
+  }
+  
+  .course-hero-title {
+    font-size: 2.1rem;
+  }
+  
+  .course-features-matrix {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  
+  .marquee-track {
+    gap: 48px;
+    animation-duration: 20s;
+  }
+  
+  .partner-img {
+    height: 28px;
+  }
+  
+  .hero-action-btn {
+    width: 100%;
+  }
+  
+  .instructor-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 28px 20px;
+    gap: 20px;
+  }
+  
+  .instructor-badge {
+    justify-content: center;
+  }
+  
+  .proof-pills-row {
+    gap: 10px;
+  }
+  
+  .proof-pill {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  /* Footer mobile flush-left layout with strong inter-category vs intra-category distinction */
+  .footer-grid {
+    grid-template-columns: 1fr;
+    row-gap: 38px; /* Inter-category gap: distinct spacing between category groups */
+    column-gap: 0;
+  }
+  
+  .brand-col {
+    grid-column: span 1;
+    margin-bottom: 6px;
+    text-align: left;
+  }
+
+  .footer-col {
+    width: 100%;
+    text-align: left;
+  }
+
+  .footer-title {
+    justify-content: flex-start;
+    text-align: left;
+    margin-bottom: 12px;
+    font-size: 0.94rem;
+    letter-spacing: 0.08em;
+  }
+
+  .footer-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    gap: 10px; /* Intra-category gap: compact spacing between links in same category */
+    padding-left: 0;
+    margin: 0;
+  }
+
+  .footer-nav li {
+    text-align: left;
+    width: 100%;
+  }
+
+  .footer-nav a {
+    text-align: left;
+    display: inline-block;
+    padding-block: 2px;
+  }
+  
+  .footer-bottom-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
