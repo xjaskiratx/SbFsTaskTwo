@@ -1320,6 +1320,41 @@
         }
       });
     }
+
+    // Scroll-aware navbar styling & Back-to-top button
+    const siteHeader = document.querySelector('.site-header');
+    const backToTopBtn = document.getElementById('backToTopBtn');
+
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      if (siteHeader) {
+        if (scrollY > 30) {
+          siteHeader.classList.add('scrolled');
+        } else {
+          siteHeader.classList.remove('scrolled');
+        }
+      }
+      if (backToTopBtn) {
+        if (scrollY > 450) {
+          backToTopBtn.classList.add('visible');
+        } else {
+          backToTopBtn.classList.remove('visible');
+        }
+      }
+    }, { passive: true });
+
+    if (backToTopBtn) {
+      backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
   </script>
+  <!-- Floating Back to Top Button -->
+  <button type="button" class="back-to-top" id="backToTopBtn" aria-label="Scroll to top of page" title="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
 </body>
 </html>
