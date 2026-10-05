@@ -1,0 +1,21 @@
+{
+  "name": "FlipStuck - Master Microsoft Excel",
+  "short_name": "FlipStuck Excel",
+  "description": "Master Microsoft Excel from beginner to advanced with hands-on projects, formulas, and dashboards.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0c0c0c",
+  "theme_color": "#d0ea05",
+  "icons": [
+    {
+      "src": "favicon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "favicon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
