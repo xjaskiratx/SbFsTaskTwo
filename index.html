@@ -15,6 +15,9 @@
 </head>
 <body>
 
+  <!-- Skip to Main Content Link for Keyboard Accessibility -->
+  <a href="#main-content" class="skip-to-content">Skip to content</a>
+
   <!-- Pure CSS Mobile Menu Toggle -->
   <input type="checkbox" id="mobile-menu-toggle" class="mobile-menu-toggle-checkbox" aria-hidden="true" hidden>
 
@@ -61,7 +64,7 @@
     </div>
   </aside>
 
-  <main>
+  <main id="main-content" tabindex="-1">
     <!-- ================= COURSE HERO SECTION ================= -->
     <section class="course-hero-section">
       <div class="container">
@@ -1140,11 +1143,11 @@
   </footer>
 
   <!-- ================= INTERACTIVE DEMO LESSON MODAL ================= -->
-  <div class="video-modal-backdrop" id="videoModal">
+  <div class="video-modal-backdrop" id="videoModal" role="dialog" aria-modal="true" aria-labelledby="modalLessonTitle" aria-hidden="true">
     <div class="video-modal-card">
-      <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close modal">&times;</button>
+      <button type="button" class="modal-close-btn" id="modalCloseBtn" aria-label="Close demo lesson preview modal">&times;</button>
       <div style="position: relative; padding: 24px; color: #fff; background: #1a1a1a;">
-        <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 8px;">Demo Lesson: Excel Dynamic Dashboards</h3>
+        <h3 id="modalLessonTitle" style="font-size: 1.25rem; font-weight: 700; margin-bottom: 8px;">Demo Lesson: Excel Dynamic Dashboards</h3>
         <p style="color: #aaa; font-size: 0.9rem; margin-bottom: 16px;">Duration: 2:45 min &bull; Instructor: Amit Kumar</p>
         <div style="background: #000; border-radius: 8px; overflow: hidden; position: relative;">
           <img src="Assets-2/hero-preview-excel.png" alt="Video preview screen" style="width: 100%; opacity: 0.85;">
@@ -1272,24 +1275,48 @@
       });
     });
 
-    // Video preview modal trigger
+    // Accessible Video preview modal trigger & focus management
     const previewTrigger = document.getElementById('videoPreviewTrigger');
     const modal = document.getElementById('videoModal');
     const modalClose = document.getElementById('modalCloseBtn');
+    let lastFocusedElement = null;
+
+    function openModal() {
+      if (!modal) return;
+      lastFocusedElement = document.activeElement;
+      modal.classList.add('active');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      if (modalClose) modalClose.focus();
+    }
+
+    function closeModal() {
+      if (!modal) return;
+      modal.classList.remove('active');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
+        lastFocusedElement.focus();
+      }
+    }
 
     if (previewTrigger && modal && modalClose) {
-      previewTrigger.addEventListener('click', () => {
-        modal.classList.add('active');
-      });
+      previewTrigger.addEventListener('click', openModal);
 
       modalClose.addEventListener('click', (e) => {
         e.stopPropagation();
-        modal.classList.remove('active');
+        closeModal();
       });
 
       modal.addEventListener('click', (e) => {
         if (e.target === modal) {
-          modal.classList.remove('active');
+          closeModal();
+        }
+      });
+
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+          closeModal();
         }
       });
     }
